@@ -1,23 +1,144 @@
 <!doctype html>
 <html lang="$lang">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>session-handoff — $title</title><meta name="description" content="$description">
-<link rel="canonical" href="$page_url"><link rel="alternate" hreflang="en" href="$home"><link rel="alternate" hreflang="zh-CN" href="${home}zh/"><link rel="alternate" hreflang="x-default" href="$home">
-<meta property="og:type" content="website"><meta property="og:title" content="session-handoff — $title"><meta property="og:description" content="$description"><meta property="og:url" content="$page_url"><meta property="og:image" content="${home}assets/social.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#eef1fa"><link rel="icon" href="${assets}favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="${assets}style.css"><script src="${assets}app.js" defer></script>
-<script type="application/ld+json">$schema</script>
-</head>
-<body data-copied="$copied" data-copy-failed="$copy_failed">
-<a class="skip" href="#main">$cta</a>
-<header class="wrap nav"><a class="brand" href="$local_home" aria-label="session-handoff home"><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 11h16l-5-5m5 5-5 5M29 21H13l5-5m-5 5 5 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>session-handoff</a><nav aria-label="Primary"><a href="#install">$cta</a><a href="$repo">GitHub</a><a class="language" href="$other_path" lang="$other_lang_code">$other_lang</a></nav></header>
-<main id="main">
-<section class="wrap hero"><div class="hero-copy"><p class="small-note">$tagline</p><h1>$headline_html</h1><p class="intro">$intro</p><div class="actions"><a class="button primary" href="#install">$cta</a><a class="text-link" href="#handoff">$demo_link <span aria-hidden="true">↗</span></a></div><a class="release-link" href="$repo/releases/tag/$version">$release <span aria-hidden="true">↗</span></a></div>
-<div class="handoff-sheet" id="handoff"><div class="sheet-top"><span class="sheet-dot" aria-hidden="true"></span><span>$example_label</span><span class="sheet-file" aria-hidden="true">handoff.md</span></div><div class="mode-switch" role="group" aria-label="$example_label"><button type="button" data-mode="local" aria-pressed="true">$mode_local</button><button type="button" data-mode="share" aria-pressed="false">$mode_share</button></div><pre class="sample" id="sample-local">$sample_local</pre><pre class="sample" id="sample-share" hidden>$sample_share</pre><p class="sheet-note">$example_note</p></div></section>
-<section class="bridge"><div class="wrap"><h2>$bridge</h2><p>$bridge_text</p><div class="features">$features</div></div></section>
-<section class="wrap modes"><h2>$modes_heading</h2><div class="mode-columns"><article><div class="mode-symbol" aria-hidden="true">↻</div><h3>$local_title</h3><p>$local_text</p></article><article><div class="mode-symbol" aria-hidden="true">⇄</div><h3>$share_title</h3><p>$share_text</p></article></div></section>
-<section class="installation" id="install"><div class="wrap"><div class="install-heading"><h2>$install_heading</h2><p>$install_text</p></div><div class="command"><code id="install-command">$install</code><button type="button" data-copy="install-command">$copy</button></div><p class="install-note">$install_note <a href="$repo#manual-codex-installation">README</a></p><h3 class="prompt-heading">$prompt_heading</h3><div class="prompts">$prompts</div><a class="example-link" href="$repo/blob/main/examples/shared-handoff.md">$example_cta <span aria-hidden="true">↗</span></a></div></section>
-<section class="wrap faq"><h2>$faq_heading</h2>$faq</section>
-</main>
-<footer class="wrap"><a class="brand" href="$local_home">session-handoff</a><p>$footer</p><div><a href="$repo">GitHub</a><a href="$repo/releases/tag/$version">$version</a><a href="$repo/blob/main/LICENSE">MIT</a></div></footer><p class="sr-only" role="status" aria-live="polite" id="copy-status"></p>
-</body></html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>session-handoff — $title</title>
+    <meta name="description" content="$description" />
+    <link rel="canonical" href="$page_url" />
+    <link rel="alternate" hreflang="en" href="$home" />
+    <link rel="alternate" hreflang="zh-CN" href="${home}zh/" />
+    <link rel="alternate" hreflang="x-default" href="$home" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="session-handoff — $title" />
+    <meta property="og:description" content="$description" />
+    <meta property="og:url" content="$page_url" />
+    <meta property="og:image" content="${home}assets/social.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#eef1fa" />
+    <link rel="icon" href="${assets}favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="${assets}style.css" />
+    <script src="${assets}app.js" defer></script>
+    <script type="application/ld+json">
+      $schema
+    </script>
+  </head>
+  <body data-copied="$copied" data-copy-failed="$copy_failed">
+    <a class="skip" href="#main">$cta</a>
+    <header class="wrap nav">
+      <a class="brand" href="$local_home" aria-label="session-handoff home"
+        ><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+          <path
+            d="M3 11h16l-5-5m5 5-5 5M29 21H13l5-5m-5 5 5 5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          /></svg
+        >session-handoff</a
+      >
+      <nav aria-label="Primary">
+        <a href="#install">$cta</a><a href="$repo">GitHub</a
+        ><a class="language" href="$other_path" lang="$other_lang_code"
+          >$other_lang</a
+        >
+      </nav>
+    </header>
+    <main id="main">
+      <section class="wrap hero">
+        <div class="hero-copy">
+          <p class="small-note">$tagline</p>
+          <h1>$headline_html</h1>
+          <p class="intro">$intro</p>
+          <div class="actions">
+            <a class="button primary" href="#install">$cta</a
+            ><a class="text-link" href="#handoff"
+              >$demo_link <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <a class="release-link" href="$repo/releases/tag/$version"
+            >$release <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="handoff-sheet" id="handoff">
+          <div class="sheet-top">
+            <span class="sheet-dot" aria-hidden="true"></span
+            ><span>$example_label</span
+            ><span class="sheet-file" aria-hidden="true">handoff.md</span>
+          </div>
+          <div class="mode-switch" role="group" aria-label="$example_label">
+            <button type="button" data-mode="local" aria-pressed="true">
+              $mode_local</button
+            ><button type="button" data-mode="share" aria-pressed="false">
+              $mode_share
+            </button>
+          </div>
+          <pre class="sample" id="sample-local">$sample_local</pre>
+          <pre class="sample" id="sample-share" hidden>$sample_share</pre>
+          <p class="sheet-note">$example_note</p>
+        </div>
+      </section>
+      <section class="bridge">
+        <div class="wrap">
+          <h2>$bridge</h2>
+          <p>$bridge_text</p>
+          <div class="features">$features</div>
+        </div>
+      </section>
+      <section class="wrap modes">
+        <h2>$modes_heading</h2>
+        <div class="mode-columns">
+          <article>
+            <div class="mode-symbol" aria-hidden="true">↻</div>
+            <h3>$local_title</h3>
+            <p>$local_text</p>
+          </article>
+          <article>
+            <div class="mode-symbol" aria-hidden="true">⇄</div>
+            <h3>$share_title</h3>
+            <p>$share_text</p>
+          </article>
+        </div>
+      </section>
+      <section class="installation" id="install">
+        <div class="wrap">
+          <div class="install-heading">
+            <h2>$install_heading</h2>
+            <p>$install_text</p>
+          </div>
+          <div class="command">
+            <code id="install-command">$install</code
+            ><button type="button" data-copy="install-command">$copy</button>
+          </div>
+          <p class="install-note">
+            $install_note <a href="$repo#manual-codex-installation">README</a>
+          </p>
+          <h3 class="prompt-heading">$prompt_heading</h3>
+          <div class="prompts">$prompts</div>
+          <a
+            class="example-link"
+            href="$repo/blob/main/examples/shared-handoff.md"
+            >$example_cta <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+      <section class="wrap faq">
+        <h2>$faq_heading</h2>
+        $faq
+      </section>
+    </main>
+    <footer class="wrap">
+      <a class="brand" href="$local_home">session-handoff</a>
+      <p>$footer</p>
+      <div>
+        <a href="$repo">GitHub</a
+        ><a href="$repo/releases/tag/$version">$version</a
+        ><a href="$repo/blob/main/LICENSE">MIT</a>
+      </div>
+    </footer>
+    <p class="sr-only" role="status" aria-live="polite" id="copy-status"></p>
+  </body>
+</html>
