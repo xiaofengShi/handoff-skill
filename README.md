@@ -1,22 +1,37 @@
-# session-handoff
+# Handoff Skill
 
-[简体中文](README.zh-CN.md) · [Website](https://xiaofengShi.github.io/session-handoff/) · [Release](https://github.com/xiaofengShi/session-handoff/releases/tag/v0.1.0)
+[简体中文](README.zh-CN.md) · [Website](https://xiaofengshi.github.io/handoff-skill/) · [Release](https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.2.0)
 
 **Keep the context. Continue the work.**
 
-Turn an ongoing task into a handoff someone can actually use. Bring the decisions, verified state, and next step into a fresh session—or hand the work to a teammate through GitHub.
+Carry a task into a fresh conversation, or give a new maintainer the context to run and maintain an entire project. Both scopes support local continuation and GitHub sharing, in the language of your request.
 
-![session-handoff preview](https://xiaofengShi.github.io/session-handoff//assets/social.png)
+The repository is named handoff-skill. The installed skill ID remains session-handoff, so existing $session-handoff requests continue to work.
+
+![Handoff Skill preview](https://xiaofengshi.github.io/handoff-skill//assets/social.png)
 
 ## Quick start
 
 ```sh
-npx skills add xiaofengShi/session-handoff --skill session-handoff
+npx skills add xiaofengShi/handoff-skill --skill session-handoff
 ```
 
 Run the command, choose your agent, and ask for a handoff. The CLI installs to the current project by default; add -g for a global installation.
 
 Requires Node.js 22.20+. Prefer no Node dependency? Clone the repository and use the Python installer.
+
+## Choose the scope. Then the recipient.
+
+A new teammate may need one task or the whole project. The handoff scope and the way you share it are independent.
+
+| Scope | Same machine | GitHub sharing |
+| --- | --- | --- |
+| Session | Current task, decisions, relevant changes, next action. | Current task at an accessible revision, with inputs and execution steps. |
+| Project | Project goals, structure, dependencies, current capabilities, operations, and backlog. | A whole-project guide with accessible sources, fixed versions, setup, verification, and maintenance. |
+
+Session is the default for “handoff this conversation.” Ask for a “project handoff” or “hand over the whole project” to include overall structure and maintenance.
+
+Handoff text follows the language of your current request, unless you explicitly request another language. Commands, identifiers, paths, and original logs stay accurate.
 
 ## Use it
 
@@ -31,6 +46,14 @@ Use $session-handoff to prepare a self-contained continuation prompt for a fresh
 ```text
 Use $session-handoff to prepare a handoff for a teammate who cannot access my machine or chat history. Use accessible GitHub files at a fixed commit; include setup, run, and verification commands. Identify any missing dependency.
 ```
+
+### Project
+
+```text
+Use $session-handoff to hand over this entire project to a new maintainer via GitHub. Cover goals, architecture, dependencies, current capabilities and evidence, operations, backlog, and the first maintenance action. Use accessible sources at fixed revisions; identify missing inputs or permissions.
+```
+
+[Read a complete project handover](examples/project-handoff.md)
 
 [Read a complete, runnable handoff example](examples/shared-handoff.md)
 
@@ -58,8 +81,8 @@ Recipient must configure their own API credentials.
 From a clone of this repository, run the standard-library installer. It respects CODEX_HOME and refuses to overwrite an existing installation.
 
 ```sh
-git clone https://github.com/xiaofengShi/session-handoff.git
-cd session-handoff
+git clone https://github.com/xiaofengShi/handoff-skill.git
+cd handoff-skill
 python3 scripts/install.py
 ```
 

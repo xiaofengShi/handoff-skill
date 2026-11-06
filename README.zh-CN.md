@@ -1,22 +1,37 @@
-# session-handoff
+# Handoff Skill
 
-[English](README.md) · [Website](https://xiaofengShi.github.io/session-handoff/) · [Release](https://github.com/xiaofengShi/session-handoff/releases/tag/v0.1.0)
+[English](README.md) · [Website](https://xiaofengshi.github.io/handoff-skill/) · [Release](https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.2.0)
 
 **保留上下文，让工作继续。**
 
-把进行中的任务整理为能直接接手的上下文。保留关键决定、真实状态和下一步，交给新会话，或通过 GitHub 分享给另一位协作者。
+把当前任务交给新会话，或让新维护者理解、运行并继续维护整个项目。两种范围都支持同机续接与 GitHub 分享，交接内容自动使用你的请求语言。
 
-![session-handoff preview](https://xiaofengShi.github.io/session-handoff//assets/social.png)
+仓库名称为 handoff-skill，已安装 Skill 的标识仍是 session-handoff，已有 $session-handoff 调用继续有效。
+
+![Handoff Skill preview](https://xiaofengshi.github.io/handoff-skill//assets/social.png)
 
 ## 快速开始
 
 ```sh
-npx skills add xiaofengShi/session-handoff --skill session-handoff
+npx skills add xiaofengShi/handoff-skill --skill session-handoff
 ```
 
 运行命令，选择使用的 Agent，然后提出交接请求。CLI 默认安装到当前项目；加上 -g 可全局安装。
 
 需要 Node.js 22.20 或更新版本。不想依赖 Node？克隆仓库后使用 Python 安装器。
+
+## 先确定交接范围，再确定接收对象。
+
+交给别人接手的，可能是一项任务，也可能是整个项目。交接范围与分享方式是两个独立维度。
+
+| 范围 | 同机续接 | GitHub 分享 |
+| --- | --- | --- |
+| Session | 当前任务、关键决定、相关改动与下一步。 | 对方可获取的任务版本、输入与执行步骤。 |
+| Project | 项目目标、结构、依赖、整体能力、维护方式与待办。 | 完整项目接手说明、固定版本、环境、验证与维护步骤。 |
+
+“交接一下／换个对话继续”默认按 Session 处理；“项目交接／交接整个项目”会覆盖整体结构与维护方式。
+
+交接正文默认跟随用户当前请求的语言；明确指定输出语言时，以指定为准。命令、标识符、路径和原始日志保持准确。
 
 ## 使用方法
 
@@ -31,6 +46,14 @@ npx skills add xiaofengShi/session-handoff --skill session-handoff
 ```text
 请使用 $session-handoff，整理一份可以分享给协作者的交接文档。对方看不到我的本地文件和聊天记录。请使用 GitHub 固定版本，写清环境准备、运行与验证命令，明确尚未交付的必要依赖。
 ```
+
+### Project
+
+```text
+请使用 $session-handoff，把整个项目交接给新维护者，通过 GitHub 分享。请覆盖目标、结构、依赖、整体能力与验证证据、运行维护、待办和第一项维护动作。使用对方可访问的固定版本，明确缺少的输入或权限。
+```
+
+[阅读完整的 Project 级交接示例](examples/project-handoff.md)
 
 [阅读一份完整、可执行的分享交接示例](examples/shared-handoff.md)
 
@@ -58,8 +81,8 @@ npx skills add xiaofengShi/session-handoff --skill session-handoff
 克隆本仓库后，运行仅依赖 Python 标准库的安装器。它遵循 CODEX_HOME，并拒绝覆盖已有安装。
 
 ```sh
-git clone https://github.com/xiaofengShi/session-handoff.git
-cd session-handoff
+git clone https://github.com/xiaofengShi/handoff-skill.git
+cd handoff-skill
 python3 scripts/install.py
 ```
 

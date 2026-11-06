@@ -2,26 +2,31 @@
 name: session-handoff
 license: MIT
 description: >-
-  Generate a self-contained continuation prompt when the user wants to move an
-  ongoing task to a new conversation/session, share a runnable GitHub-based
-  handoff with another person, hand off context, or resume from a
-  supplied handoff. Automatically match natural requests such as “交接一下”,
-  “对话交接”, “整理对话”, “会话交接”, “总结一下方便新对话继续”,
-  “换个对话继续”, “整理新 session 继承语句”, “生成交接提示词”, or
-  “接着这份交接继续”; an explicit skill name or command is not required.
-  Preserve decisions, verified state, authorization scope and the next executable
-  step. If the user specifies minutes, transcript editing, or another summary
-  format, follow that request instead. A handoff request alone does not create a
-  conversation, modify project rules/memory, or start downstream work.
+  Prepare session or whole-project handoffs for a fresh conversation, another
+  maintainer, or a GitHub-based transfer; also resume from a supplied handoff.
+  Match requests such as “交接一下”, “整理对话”, “换个对话继续”,
+  “交接整个项目”, “项目交接”, “交给别人维护”, “session handoff”,
+  “project handoff”, and equivalent requests in other languages.
+  Preserve decisions, verified state, dependencies, authorization, and the next
+  executable step. Match the user's requested output language or current request.
+  A handoff alone does not authorize publication or downstream work.
 ---
 
-# Session Handoff
+# Session & Project Handoff
 
-把当前任务压缩成下一位 Agent 可以直接接手的工作上下文。默认产物是一段可复制的续接提示词，面向执行；不复述整段聊天，也不借交接重做完整审计或项目治理。
+将当前任务或整个项目整理为下一位 Agent 或协作者可以直接接手的上下文。Session 交接默认给出可复制的续接提示词；Project 交接给出项目接手说明与最短启动语句。范围按用户请求选择，不复述整段聊天，也不借交接开展无关审计或项目治理。
 
 ## 自然语言触发
 
 用户针对当前任务说“交接一下”“对话交接”“整理对话”等短语时，直接进入生成交接，不要求用户补写 Skill 名称、斜杠命令或再次确认。未指定其他产物的“整理对话”默认整理为可供新对话继续的提示词；如果用户明确要会议纪要、聊天记录润色或其他格式，按其指定产物处理，不强行改成交接。讨论如何配置触发词或引用这些短语本身，不是要求立即生成一份交接。
+
+## 自动匹配输出语言
+
+默认使用用户当前交接请求的自然语言生成或修改交接内容，包括项目说明、摘要、标题、操作说明与启动语句；用户明确指定输出语言时优先遵从。例如英文请求输出英文，西班牙文请求输出西班牙文，即使本 Skill、项目 README 或源聊天使用其他语言。
+
+混合语言请求按明确的语言要求或主要任务指令判断，不因代码、路径、URL、引用材料、示例或历史聊天的语言改变输出语言。用户当前已明确切换语言时跟随切换；不要额外询问常规语言选择。
+
+保留命令、代码、文件名、标识符、API 名称和原始日志的准确形式；需要解释时使用目标语言。引用原文可以保留原语言并给目标语言说明。用户要求双语时提供对应双语；只修改指定内容时保留范围外的文本，不为匹配语言翻译整个仓库或改写未经请求的原始资料。
 
 ## 选择操作
 
@@ -30,6 +35,20 @@ description: >-
 - 用户只粘贴材料而没有执行意图时，将其视为上下文，必要时澄清，不自行推断已获新执行授权。
 
 区分交接对象：自己在同一机器换会话时，可使用经核验的本地现场；用户提到分享、转发、交给别人或另一台机器时，使用下述“分享交接”。对象未明时先生成自包含内容，不因普通交接自动发布资料。
+
+## 选择范围：Session 或 Project
+
+交接范围与接收对象是两个独立维度，不能用“分享给别人”代替范围判断：
+
+| 范围 | 同机续接 | GitHub 分享 |
+| --- | --- | --- |
+| Session | 当前任务、相关改动、决定与下一步 | 当前任务及接收者可获取的固定版本、输入与执行步骤 |
+| Project | 整体项目的目标、结构、依赖、真实状态与维护方式 | 完整项目接手说明、可访问的仓库与资料、环境和维护验证 |
+
+- 用户说“交接一下”“换个对话继续”且未指定整个项目时，默认 Session；聚焦当前任务，不扩大为全项目盘点。
+- 用户说“项目交接”“交接整个项目”“交给别人维护”“project handoff”或接管整体项目时，选择 Project。生成前读取 [references/project-handoff.md](references/project-handoff.md)，以项目文件和实际状态为依据，当前会话补充未落盘的决定。
+- 只说“分享给别人”时保持当前任务范围并采用 GitHub 分享；“把整个项目交给同事”则是 Project + GitHub 分享。范围已明确时不再询问。
+- 项目目标路径从当前上下文和仓库定位。多个无关项目且无法辨认目标时，只澄清这个关键缺口；不默认盘点整个工作区。
 
 ## 分享交接：通过 GitHub 从零接手
 
@@ -68,9 +87,9 @@ Git 项目通常只需读取实际规则、`git status --short`、`git rev-parse
 
 对旧测试与历史实验注明“上轮已验证”及对应版本，不冒充本轮重跑。对没有检查的状态写“未核验”。文档计划不等于实现，局部通过不等于端到端或效果通过。保留相互不同的正负结果及各自协议边界。
 
-## 生成可直接粘贴的提示词
+## Session：生成可直接粘贴的提示词
 
-使用用户语言，以“请在……继续……”开头，在一个代码块中给出自包含指令。优先简短且足以行动；只有关键事实需要时才展开。不要只给链接或“参考上一轮”，新会话可能没有聊天历史。
+使用目标语言，以明确的继续工作请求开头（如中文“请在……继续……”），在一个代码块中给出自包含指令。优先简短且足以行动；只有关键事实需要时才展开。不要只给链接或“参考上一轮”，新会话可能没有聊天历史。
 
 同机交接可按以下骨架组织，删除不适用项，替换全部占位符；分享交接将本地工作区替换为 GitHub 仓库与固定版本，并补齐获取、环境、运行和验证步骤：
 
@@ -95,11 +114,13 @@ Git 项目通常只需读取实际规则、`git status --short`、`git rev-parse
 
 较长历史已有可靠文档时，提示词保留目标、关键决定、真实状态、权限和第一步，把细节交给已核验且接收者可访问的文件。需要在新机器使用时按分享交接处理；不要假设本地 commit 已在远端或工作区自动共享。
 
-默认直接在对话中交付，不自动落盘或制作报告。用户要求保存交接、或已有明确交付约定需要文件时，沿用项目位置并给最短启动语句，避免创建第二套项目事实。只有用户要求创建/转交实际任务时才调用任务管理工具；用户索要“新会话语句”不等于请求创建新会话。
+Session 默认直接在对话中交付，不自动落盘或制作报告；Project 按其参考流程交付项目说明。用户要求保存交接、或已有明确交付约定需要文件时，沿用项目位置并给最短启动语句，避免创建第二套项目事实。只有用户要求创建/转交实际任务时才调用任务管理工具；用户索要“新会话语句”不等于请求创建新会话。
 
 ## 交付前的冷启动检查
 
 站在只能看到这段提示词的新 Agent 视角检查：能否定位工作区和权威文件，识别当前唯一目标，区分实现/设计/验证，知道首个动作和验收边界？有无把历史指标写成当前效果、把建议写成授权、遗漏用户纠正、暴露敏感值，或暗示后台任务已停止？修正实际缺口即可，不追加无关检查清单。
+
+Project 交接还需检查：新维护者能否理解项目整体、找到权威资料、搭建环境、验证主要能力并处理优先待办，而不只是继续最近的一项任务？
 
 分享交接还需检查：断开发送者本地文件和聊天历史后，文档中的资料入口、固定版本、权限前提、命令与输入是否足够？清除仅本机可用的路径和未说明的依赖，明确任何仍阻止接收者运行的缺口。
 

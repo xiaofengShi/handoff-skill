@@ -603,3 +603,51 @@ footer > div {
     font-size: clamp(38px, 3.6vw, 52px);
   }
 }
+
+.scopes {
+  padding-top: 76px;
+}
+.scopes > p {
+  margin-top: 22px;
+  color: #526080;
+}
+.scope-table {
+  margin-top: 30px;
+}
+.scope-table table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+}
+.scope-table th,
+.scope-table td {
+  padding: 20px 18px;
+  border-bottom: 1px solid #c8d1e5;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.scope-table th:first-child {
+  width: 20%;
+}
+.scope-table th {
+  font-weight: 600;
+}
+.project-example {
+  padding-top: 30px;
+}
+@media (min-width: 761px) {
+  .prompts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .scopes {
+    padding-top: 52px;
+  }
+  .scope-table th,
+  .scope-table td {
+    padding: 14px 8px;
+    font-size: 14px;
+  }
+}

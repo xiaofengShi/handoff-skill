@@ -6,9 +6,9 @@ This is a real, minimal example of a handoff to someone who cannot access the se
 
 Build and preview the bilingual session-handoff homepage. The source, static assets, installer, and installation tests are included in the repository at the revision below. Product copy lives in `site/content.json`; `scripts/build.py` generates `docs/`, `README.md`, and `README.zh-CN.md`.
 
-- Repository: https://github.com/xiaofengShi/session-handoff
+- Repository: https://github.com/xiaofengShi/handoff-skill
 - Fixed commit: `df15d0a35df79a1f52f501b1eb9a50d2ca0db798`
-- Read first: [README.md](https://github.com/xiaofengShi/session-handoff/blob/df15d0a35df79a1f52f501b1eb9a50d2ca0db798/README.md), [CONTRIBUTING.md](https://github.com/xiaofengShi/session-handoff/blob/df15d0a35df79a1f52f501b1eb9a50d2ca0db798/CONTRIBUTING.md), then [scripts/build.py](https://github.com/xiaofengShi/session-handoff/blob/df15d0a35df79a1f52f501b1eb9a50d2ca0db798/scripts/build.py).
+- Read first: [README.md](https://github.com/xiaofengShi/handoff-skill/blob/df15d0a35df79a1f52f501b1eb9a50d2ca0db798/README.md), [CONTRIBUTING.md](https://github.com/xiaofengShi/handoff-skill/blob/df15d0a35df79a1f52f501b1eb9a50d2ca0db798/CONTRIBUTING.md), then [scripts/build.py](https://github.com/xiaofengShi/handoff-skill/blob/df15d0a35df79a1f52f501b1eb9a50d2ca0db798/scripts/build.py).
 - Access: public repository; no GitHub login is needed to clone over HTTPS.
 - Requirements: Git and Python 3.9 or newer. A shell is needed for the commands below; they use macOS/Linux shell syntax. No Node.js, Python packages, credentials, private data, or original chat history are needed for this build task.
 
@@ -17,7 +17,7 @@ Build and preview the bilingual session-handoff homepage. The source, static ass
 Run in a directory that does not already contain `session-handoff-example`:
 
 ```sh
-git clone https://github.com/xiaofengShi/session-handoff.git session-handoff-example
+git clone https://github.com/xiaofengShi/handoff-skill.git session-handoff-example
 cd session-handoff-example
 git checkout --detach df15d0a35df79a1f52f501b1eb9a50d2ca0db798
 python3 scripts/build.py

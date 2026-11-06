@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>session-handoff — $title</title>
+    <title>$brand — $title</title>
     <meta name="description" content="$description" />
     <link rel="canonical" href="$page_url" />
     <link rel="alternate" hreflang="en" href="$home" />
     <link rel="alternate" hreflang="zh-CN" href="${home}zh/" />
     <link rel="alternate" hreflang="x-default" href="$home" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="session-handoff — $title" />
+    <meta property="og:title" content="$brand — $title" />
     <meta property="og:description" content="$description" />
     <meta property="og:url" content="$page_url" />
     <meta property="og:image" content="${home}assets/social.png" />
@@ -28,7 +28,7 @@
   <body data-copied="$copied" data-copy-failed="$copy_failed">
     <a class="skip" href="#main">$cta</a>
     <header class="wrap nav">
-      <a class="brand" href="$local_home" aria-label="session-handoff home"
+      <a class="brand" href="$local_home" aria-label="Handoff Skill home"
         ><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
           <path
             d="M3 11h16l-5-5m5 5-5 5M29 21H13l5-5m-5 5 5 5"
@@ -38,7 +38,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           /></svg
-        >session-handoff</a
+        >$brand</a
       >
       <nav aria-label="Primary">
         <a href="#install">$cta</a><a href="$repo">GitHub</a
@@ -70,14 +70,14 @@
             ><span class="sheet-file" aria-hidden="true">handoff.md</span>
           </div>
           <div class="mode-switch" role="group" aria-label="$example_label">
-            <button type="button" data-mode="local" aria-pressed="true">
-              $mode_local</button
-            ><button type="button" data-mode="share" aria-pressed="false">
-              $mode_share
+            <button type="button" data-mode="session" aria-pressed="true">
+              $scope_session</button
+            ><button type="button" data-mode="project" aria-pressed="false">
+              $scope_project
             </button>
           </div>
-          <pre class="sample" id="sample-local">$sample_local</pre>
-          <pre class="sample" id="sample-share" hidden>$sample_share</pre>
+          <pre class="sample" id="sample-session">$sample_local</pre>
+          <pre class="sample" id="sample-project" hidden>$sample_project</pre>
           <p class="sheet-note">$example_note</p>
         </div>
       </section>
@@ -87,6 +87,35 @@
           <p>$bridge_text</p>
           <div class="features">$features</div>
         </div>
+      </section>
+      <section class="wrap scopes">
+        <h2>$scope_heading</h2>
+        <p>$scope_intro</p>
+        <div class="scope-table">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">$scope_header</th>
+                <th scope="col">$audience_local</th>
+                <th scope="col">$audience_share</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">$scope_session</th>
+                <td>$scope_session_local</td>
+                <td>$scope_session_share</td>
+              </tr>
+              <tr>
+                <th scope="row">$scope_project</th>
+                <td>$scope_project_local</td>
+                <td>$scope_project_share</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>$scope_example_note</p>
+        <p>$language_note</p>
       </section>
       <section class="wrap modes">
         <h2>$modes_heading</h2>
@@ -123,15 +152,23 @@
             href="$repo/blob/main/examples/shared-handoff.md"
             >$example_cta <span aria-hidden="true">↗</span></a
           >
+          <p>
+            <a
+              class="example-link"
+              href="$repo/blob/main/examples/project-handoff.md"
+              >$project_example_cta <span aria-hidden="true">↗</span></a
+            >
+          </p>
         </div>
       </section>
+
       <section class="wrap faq">
         <h2>$faq_heading</h2>
         $faq
       </section>
     </main>
     <footer class="wrap">
-      <a class="brand" href="$local_home">session-handoff</a>
+      <a class="brand" href="$local_home">$brand</a>
       <p>$footer</p>
       <div>
         <a href="$repo">GitHub</a
