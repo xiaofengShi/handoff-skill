@@ -10,7 +10,11 @@
 - 引入第三方内容时注明来源，并确认其许可证兼容；保留必要的版权和许可声明。提交贡献表示你有权贡献这些内容，并同意以本项目 MIT 许可证分发。
 - 根目录与安装目录内的两份 `LICENSE` 应保持相同，确保单独安装 Skill 时仍携带许可文本。
 
-## 验证
+## 构建与验证
+
+产品文案与安装命令统一维护在 `site/content.json`。修改后运行 `python3 scripts/build.py`，同步生成中英 README 与主页；不要直接编辑生成文件。网站模板和静态资源位于 `site/`，生成目录是 `docs/`。
+
+运行 `python3 -m unittest discover -s tests` 验证安装器对已有安装与符号链接的处理。主页通过 GitHub Actions 构建与发布，CI 还会检查生成文件是否与源内容一致。
 
 提交前运行 `git diff --check`，检查 YAML 可解析、`name` 与安装目录名称一致、README 链接及安装路径有效。若本机有 Codex 的 `skill-creator`，还可使用它提供的 `quick_validate.py` 校验安装目录；这只是格式检查，不代表行为验证。
 

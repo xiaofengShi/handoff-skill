@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>session-handoff — Keep the context. Continue the work.</title><meta name="description" content="An open-source agent skill for fresh-session continuation and shareable GitHub handoffs. Keep decisions, evidence, and the next executable step together.">
+<link rel="canonical" href="https://xiaofengShi.github.io/session-handoff/"><link rel="alternate" hreflang="en" href="https://xiaofengShi.github.io/session-handoff/"><link rel="alternate" hreflang="zh-CN" href="https://xiaofengShi.github.io/session-handoff/zh/"><link rel="alternate" hreflang="x-default" href="https://xiaofengShi.github.io/session-handoff/">
+<meta property="og:type" content="website"><meta property="og:title" content="session-handoff — Keep the context. Continue the work."><meta property="og:description" content="An open-source agent skill for fresh-session continuation and shareable GitHub handoffs. Keep decisions, evidence, and the next executable step together."><meta property="og:url" content="https://xiaofengShi.github.io/session-handoff/"><meta property="og:image" content="https://xiaofengShi.github.io/session-handoff/assets/social.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#eef1fa"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css"><script src="assets/app.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "session-handoff", "description": "An open-source agent skill for fresh-session continuation and shareable GitHub handoffs. Keep decisions, evidence, and the next executable step together.", "codeRepository": "https://github.com/xiaofengShi/session-handoff", "url": "https://xiaofengShi.github.io/session-handoff/", "license": "https://github.com/xiaofengShi/session-handoff/blob/main/LICENSE", "version": "v0.1.0", "inLanguage": "en"}</script>
+</head>
+<body data-copied="Copied" data-copy-failed="Select and copy the text manually.">
+<a class="skip" href="#main">Install the skill</a>
+<header class="wrap nav"><a class="brand" href="./" aria-label="session-handoff home"><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 11h16l-5-5m5 5-5 5M29 21H13l5-5m-5 5 5 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>session-handoff</a><nav aria-label="Primary"><a href="#install">Install the skill</a><a href="https://github.com/xiaofengShi/session-handoff">GitHub</a><a class="language" href="zh/" lang="zh-CN">简体中文</a></nav></header>
+<main id="main">
+<section class="wrap hero"><div class="hero-copy"><p class="small-note">A portable context skill for coding agents. MIT licensed.</p><h1>A new conversation.<br>The same momentum.</h1><p class="intro">Turn an ongoing task into a handoff someone can actually use. Bring the decisions, verified state, and next step into a fresh session—or hand the work to a teammate through GitHub.</p><div class="actions"><a class="button primary" href="#install">Install the skill</a><a class="text-link" href="#handoff">See the handoff <span aria-hidden="true">↗</span></a></div><a class="release-link" href="https://github.com/xiaofengShi/session-handoff/releases/tag/v0.1.0">Download v0.1.0 <span aria-hidden="true">↗</span></a></div>
+<div class="handoff-sheet" id="handoff"><div class="sheet-top"><span class="sheet-dot" aria-hidden="true"></span><span>Anatomy of a handoff</span><span class="sheet-file" aria-hidden="true">handoff.md</span></div><div class="mode-switch" role="group" aria-label="Anatomy of a handoff"><button type="button" data-mode="local" aria-pressed="true">New session</button><button type="button" data-mode="share" aria-pressed="false">New teammate</button></div><pre class="sample" id="sample-local">Goal
+Finish the CSV export feature.
+
+Verified state
+Export works; timezone regression still needs a test.
+
+Read first
+Project rules, export module, current diff.
+
+Next action
+Add the timezone regression test, then run the export tests.
+
+Boundary
+Implementation only. Deployment needs approval.</pre><pre class="sample" id="sample-share" hidden>Goal
+Continue the export feature from a fixed GitHub commit.
+
+Get the work
+Repository URL + full commit SHA + relative file paths.
+
+Prepare
+Runtime, locked dependencies, inputs, and access requirements.
+
+Run &amp; verify
+Exact commands, expected result, and next action.
+
+Open dependency
+Recipient must configure their own API credentials.</pre><p class="sheet-note">Illustrative example; repository and version are specified in a real handoff.</p></div></section>
+<section class="bridge"><div class="wrap"><h2>The useful part of a conversation should survive the conversation.</h2><p>A summary tells you what happened. A handoff also tells the next person where to begin, what was verified, and what is still missing.</p><div class="features"><article><h3>Keep the decisions</h3><p>Carry forward the chosen direction, corrections, and authorization scope.</p></article><article><h3>Ground the state</h3><p>Separate completed work from plans, old test results, and assumptions.</p></article><article><h3>Make the next step executable</h3><p>Name the files, commands, inputs, and success condition needed to continue.</p></article></div></div></section>
+<section class="wrap modes"><h2>Two ways to pass the work on.</h2><div class="mode-columns"><article><div class="mode-symbol" aria-hidden="true">↻</div><h3>Continue on your machine</h3><p>Move to a fresh conversation with the current workspace, relevant files, and the first action ready to go.</p></article><article><div class="mode-symbol" aria-hidden="true">⇄</div><h3>Give someone else a starting point</h3><p>Use accessible GitHub files and a fixed commit. Document setup, permissions, commands, and any dependency that still blocks execution.</p></article></div></section>
+<section class="installation" id="install"><div class="wrap"><div class="install-heading"><h2>Start with one skill.</h2><p>Run the command, choose your agent, and ask for a handoff. The CLI installs to the current project by default; add -g for a global installation.</p></div><div class="command"><code id="install-command">npx skills add xiaofengShi/session-handoff --skill session-handoff</code><button type="button" data-copy="install-command">Copy</button></div><p class="install-note">Requires Node.js 22.20+. Prefer no Node dependency? Clone the repository and use the Python installer. <a href="https://github.com/xiaofengShi/session-handoff#manual-codex-installation">README</a></p><h3 class="prompt-heading">Then ask for the kind of handoff you need.</h3><div class="prompts"><article class="prompt-box"><div class="prompt-top"><span>New session</span><button type="button" data-copy="prompt-local">Copy</button></div><pre id="prompt-local">Use $session-handoff to prepare a self-contained continuation prompt for a fresh conversation. Preserve decisions, verified state, authorization scope, and the next action.</pre></article><article class="prompt-box"><div class="prompt-top"><span>New teammate</span><button type="button" data-copy="prompt-share">Copy</button></div><pre id="prompt-share">Use $session-handoff to prepare a handoff for a teammate who cannot access my machine or chat history. Use accessible GitHub files at a fixed commit; include setup, run, and verification commands. Identify any missing dependency.</pre></article></div><a class="example-link" href="https://github.com/xiaofengShi/session-handoff/blob/main/examples/shared-handoff.md">Read a complete, runnable handoff example <span aria-hidden="true">↗</span></a></div></section>
+<section class="wrap faq"><h2>A few things to know.</h2><details><summary>Does the recipient need this skill?</summary><p>No. A shared handoff should contain the instructions and accessible source references needed to continue.</p></details><details><summary>Will it publish my work?</summary><p>The handoff workflow requires explicit authorization before publishing, pushing, or changing access. Installing it does not grant that authorization.</p></details><details><summary>What if the project needs private data?</summary><p>The handoff should identify the access requirement or missing dependency. It should never embed credentials or claim a project is runnable while required inputs are unavailable.</p></details><details><summary>Which agents can use it?</summary><p>The package includes Codex metadata and standard SKILL.md instructions. The Skills CLI can install it to supported agents; behavior varies by host. The core instructions are in Chinese and request output in the user’s language.</p></details></section>
+</main>
+<footer class="wrap"><a class="brand" href="./">session-handoff</a><p>Built for continuity. Shared under MIT.</p><div><a href="https://github.com/xiaofengShi/session-handoff">GitHub</a><a href="https://github.com/xiaofengShi/session-handoff/releases/tag/v0.1.0">v0.1.0</a><a href="https://github.com/xiaofengShi/session-handoff/blob/main/LICENSE">MIT</a></div></footer><p class="sr-only" role="status" aria-live="polite" id="copy-status"></p>
+</body></html>

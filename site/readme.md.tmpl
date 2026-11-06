@@ -1,0 +1,73 @@
+# session-handoff
+
+$readme_lang · [Website]($home) · [Release]($repo/releases/tag/$version)
+
+**$title**
+
+$intro
+
+![session-handoff preview]($home/assets/social.png)
+
+## $quickstart
+
+```sh
+$install
+```
+
+$install_text
+
+$install_note
+
+## $use_heading
+
+### $mode_local
+
+```text
+$prompt_local
+```
+
+### $mode_share
+
+```text
+$prompt_share
+```
+
+[$example_cta](examples/shared-handoff.md)
+
+$example_note
+
+```text
+$sample_share
+```
+
+## $manual_heading
+
+$manual_text
+
+```sh
+git clone $repo.git
+cd session-handoff
+python3 scripts/install.py
+```
+
+Python ≥ 3.9. `python3 scripts/install.py --dest /path/to/skills/session-handoff` installs to a chosen skill directory. Existing directories and symlinks are never overwritten. Back up your old installation before updating. Remove only the installed skill directory to uninstall.
+
+The package follows the SKILL.md format and includes Codex metadata. Other agents’ installation support depends on the host and the [Skills CLI](https://github.com/vercel-labs/skills). Core instructions are currently in Chinese; output follows the user's language. Recipients of a handoff do not need this skill installed. A handoff still requires the project's actual environment, permissions, inputs, and credentials.
+
+## $verify_heading
+
+$verify_text
+
+```sh
+python3 scripts/build.py
+python3 -m unittest discover -s tests
+git diff --check
+```
+
+For local preview, run `python3 -m http.server 8000 --directory docs` and open `http://localhost:8000/`. To edit product copy, edit `site/content.json`; to change presentation, edit `site/index.html` or `site/assets/`, then rebuild. `examples/shared-handoff.md` documents an actual fixed-version checkout and website build.
+
+## $contribute
+
+$contribute_text
+
+[CONTRIBUTING.md](CONTRIBUTING.md) · [LICENSE](LICENSE)
