@@ -651,3 +651,11 @@ footer > div {
     font-size: 14px;
   }
 }
+
+.delivery {
+  margin-top: 42px;
+}
+.delivery p {
+  margin-top: 16px;
+  color: #c4cee8;
+}

@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.3.0
+
+- Default both Session and Project deliveries to standalone offline HTML plus the same Markdown audit source; explicit format requests still take priority.
+- Include essential context, evidence, commands, and explanations in the document. Embed necessary visuals with captions and text alternatives; rendering must work without network, JavaScript, CDN assets, or companion files.
+- Add an offline HTML template, delivery/validation guidance, and a reproducible project example with an inline SVG and text/table alternative.
+- Publish the readable example on Pages. Its optional Markdown renderer is a maintenance dependency, not a runtime requirement for Skill users or recipients.
+
 ## v0.2.0
 
 - Add explicit Session and Project handoff scopes, independent of local continuation or GitHub sharing.

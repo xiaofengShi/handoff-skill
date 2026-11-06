@@ -1,6 +1,6 @@
 interface:
   display_name: "Handoff · 会话与项目交接"
-  short_description: "支持 Session 续接与 Project 整体移交，保留证据、依赖、维护方式和下一步"
+  short_description: "Session / Project 交接，默认离线 HTML，保留证据与接手步骤"
   default_prompt: "请使用 $session-handoff，按我的请求整理 Session 或 Project 交接，保留真实状态、证据与可执行的接手步骤。"
 policy:
   allow_implicit_invocation: true

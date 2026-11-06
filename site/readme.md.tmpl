@@ -33,6 +33,16 @@ $scope_example_note
 
 $language_note
 
+## $delivery_heading
+
+$delivery_text
+
+$delivery_visuals
+
+$delivery_override
+
+[$project_example_cta](${home}examples/project-handoff.html) · [$audit_source](examples/project-handoff.md)
+
 ## $use_heading
 
 ### $mode_local
@@ -53,7 +63,7 @@ $prompt_share
 $prompt_project
 ```
 
-[$project_example_cta](examples/project-handoff.md)
+[$project_example_cta](${home}examples/project-handoff.html)
 
 [$example_cta](examples/shared-handoff.md)
 
@@ -86,6 +96,8 @@ python3 scripts/build.py
 python3 -m unittest discover -s tests
 git diff --check
 ```
+
+To regenerate the standalone HTML example, use Python 3.10+ with `python3 -m pip install -r requirements-examples.txt`, then run `python3 scripts/render_example.py` before the site build. Skill use, installation, and the site builder do not require this optional example-rendering dependency.
 
 For local preview, run `python3 -m http.server 8000 --directory docs` and open `http://localhost:8000/`. To edit product copy, edit `site/content.json`; to change presentation, edit `site/index.html` or `site/assets/`, then rebuild. `examples/shared-handoff.md` documents an actual fixed-version checkout and website build.
 

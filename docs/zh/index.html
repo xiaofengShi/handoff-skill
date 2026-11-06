@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Handoff Skill — 保留上下文，让工作继续。</title>
-    <meta name="description" content="开源交接 Skill：覆盖 Session 任务续接与 Project 整体交接，保留结构、依赖、验证证据和维护步骤，自动跟随用户请求的语言。" />
+    <meta name="description" content="支持 Session 与 Project 的交接 Skill，默认交付离线 HTML 与同源 Markdown，让背景、证据、必要图示和接手步骤独立可读。" />
     <link rel="canonical" href="https://xiaofengshi.github.io/handoff-skill/zh/" />
     <link rel="alternate" hreflang="en" href="https://xiaofengshi.github.io/handoff-skill/" />
     <link rel="alternate" hreflang="zh-CN" href="https://xiaofengshi.github.io/handoff-skill/zh/" />
     <link rel="alternate" hreflang="x-default" href="https://xiaofengshi.github.io/handoff-skill/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Handoff Skill — 保留上下文，让工作继续。" />
-    <meta property="og:description" content="开源交接 Skill：覆盖 Session 任务续接与 Project 整体交接，保留结构、依赖、验证证据和维护步骤，自动跟随用户请求的语言。" />
+    <meta property="og:description" content="支持 Session 与 Project 的交接 Skill，默认交付离线 HTML 与同源 Markdown，让背景、证据、必要图示和接手步骤独立可读。" />
     <meta property="og:url" content="https://xiaofengshi.github.io/handoff-skill/zh/" />
     <meta property="og:image" content="https://xiaofengshi.github.io/handoff-skill/assets/social.png" />
     <meta property="og:image:width" content="1200" />
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../assets/style.css" />
     <script src="../assets/app.js" defer></script>
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "session-handoff", "description": "开源交接 Skill：覆盖 Session 任务续接与 Project 整体交接，保留结构、依赖、验证证据和维护步骤，自动跟随用户请求的语言。", "codeRepository": "https://github.com/xiaofengShi/handoff-skill", "url": "https://xiaofengshi.github.io/handoff-skill/zh/", "license": "https://github.com/xiaofengShi/handoff-skill/blob/main/LICENSE", "version": "v0.2.0", "inLanguage": "zh-CN"}
+      {"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "session-handoff", "description": "支持 Session 与 Project 的交接 Skill，默认交付离线 HTML 与同源 Markdown，让背景、证据、必要图示和接手步骤独立可读。", "codeRepository": "https://github.com/xiaofengShi/handoff-skill", "url": "https://xiaofengshi.github.io/handoff-skill/zh/", "license": "https://github.com/xiaofengShi/handoff-skill/blob/main/LICENSE", "version": "v0.3.0", "inLanguage": "zh-CN"}
     </script>
   </head>
   <body data-copied="已复制" data-copy-failed="请选中文本后手动复制。">
@@ -50,7 +50,7 @@
     <main id="main">
       <section class="wrap hero">
         <div class="hero-copy">
-          <p class="small-note">支持 Session 与 Project 的编码 Agent 交接 Skill，采用 MIT 许可。</p>
+          <p class="small-note">支持 Session 与 Project，默认交付独立 HTML，采用 MIT 许可。</p>
           <h1>继续当前任务，<br>交接整个项目。</h1>
           <p class="intro">把当前任务交给新会话，或让新维护者理解、运行并继续维护整个项目。两种范围都支持同机续接与 GitHub 分享，交接内容自动使用你的请求语言。</p>
           <div class="actions">
@@ -59,7 +59,7 @@
               >看看交接内容 <span aria-hidden="true">↗</span></a
             >
           </div>
-          <a class="release-link" href="https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.2.0"
+          <a class="release-link" href="https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.3.0"
             >下载版本 <span aria-hidden="true">↗</span></a
           >
         </div>
@@ -171,6 +171,12 @@ CSV 导出服务，包含 API 和后台 worker。
           <p class="install-note">
             需要 Node.js 22.20 或更新版本。不想依赖 Node？克隆仓库后使用 Python 安装器。 <a href="https://github.com/xiaofengShi/handoff-skill#manual-codex-installation">README</a>
           </p>
+          <section class="delivery">
+            <h3>一份文件，就能独立阅读。</h3>
+            <p>Session 与 Project 默认都交付独立 HTML，并保留同源 Markdown。必要的背景、证据、命令和操作说明留在文档中，断网、禁用脚本也能阅读。</p>
+            <p>当结构、流程或当前状态需要图文解释时，嵌入相应图示或截图，配上图注与文字说明。代码和大文件仍按文档中的 GitHub 入口及权限要求获取。</p>
+            <p>用户明确要求纯文本、仅 Markdown、其他格式或不落盘时，按指定方式交付。</p>
+          </section>
           <h3 class="prompt-heading">按任务续接或整个项目移交提出请求。</h3>
           <div class="prompts"><article class="prompt-box"><div class="prompt-top"><span>换个会话</span><button type="button" data-copy="prompt-local">复制</button></div><pre id="prompt-local">请使用 $session-handoff，把当前任务整理成可粘贴到新对话继续执行的交接提示词，保留决定、验证证据、授权范围和下一步。</pre></article><article class="prompt-box"><div class="prompt-top"><span>交给别人</span><button type="button" data-copy="prompt-share">复制</button></div><pre id="prompt-share">请使用 $session-handoff，整理一份可以分享给协作者的交接文档。对方看不到我的本地文件和聊天记录。请使用 GitHub 固定版本，写清环境准备、运行与验证命令，明确尚未交付的必要依赖。</pre></article><article class="prompt-box"><div class="prompt-top"><span>Project</span><button type="button" data-copy="prompt-project">复制</button></div><pre id="prompt-project">请使用 $session-handoff，把整个项目交接给新维护者，通过 GitHub 分享。请覆盖目标、结构、依赖、整体能力与验证证据、运行维护、待办和第一项维护动作。使用对方可访问的固定版本，明确缺少的输入或权限。</pre></article></div>
           <a
@@ -179,10 +185,8 @@ CSV 导出服务，包含 API 和后台 worker。
             >阅读一份完整、可执行的分享交接示例 <span aria-hidden="true">↗</span></a
           >
           <p>
-            <a
-              class="example-link"
-              href="https://github.com/xiaofengShi/handoff-skill/blob/main/examples/project-handoff.md"
-              >阅读完整的 Project 级交接示例 <span aria-hidden="true">↗</span></a
+            <a class="example-link" href="https://xiaofengshi.github.io/handoff-skill/examples/project-handoff.html"
+              >打开独立 HTML 项目交接示例 <span aria-hidden="true">↗</span></a
             >
           </p>
         </div>
@@ -190,7 +194,7 @@ CSV 导出服务，包含 API 和后台 worker。
 
       <section class="wrap faq">
         <h2>使用前了解这几件事。</h2>
-        <details><summary>输出会跟随我的语言吗？</summary><p>会。交接正文与修改后的说明默认使用当前请求的语言；明确指定输出语言时优先遵从。命令、路径、标识符和原始日志保持准确。</p></details><details><summary>接收者也要安装这个 Skill 吗？</summary><p>不需要。分享文档本身应包含接手说明，以及接收者可访问的资料入口。</p></details><details><summary>它会自动发布我的工作吗？</summary><p>交接流程要求发布、推送或修改权限前获得明确授权；安装 Skill 不会授予这些权限。</p></details><details><summary>项目需要私有数据怎么办？</summary><p>交接应说明访问条件或缺少的依赖，不应嵌入密钥，也不能在必要输入尚未交付时声称对方已可运行。</p></details><details><summary>支持哪些 Agent？</summary><p>包中包含 Codex 元数据和标准 SKILL.md 指令。Skills CLI 可将其安装到支持的 Agent；执行行为取决于宿主。核心指令使用中文，要求按用户的语言输出。</p></details>
+        <details><summary>交接文档能离线阅读吗？</summary><p>能。默认 HTML 内含核心正文、样式和必要图示，不依赖网络或脚本。获取项目代码、私有数据等运行资料，仍需满足文档中写明的访问条件。</p></details><details><summary>输出会跟随我的语言吗？</summary><p>会。交接正文与修改后的说明默认使用当前请求的语言；明确指定输出语言时优先遵从。命令、路径、标识符和原始日志保持准确。</p></details><details><summary>接收者也要安装这个 Skill 吗？</summary><p>不需要。分享文档本身应包含接手说明，以及接收者可访问的资料入口。</p></details><details><summary>它会自动发布我的工作吗？</summary><p>交接流程要求发布、推送或修改权限前获得明确授权；安装 Skill 不会授予这些权限。</p></details><details><summary>项目需要私有数据怎么办？</summary><p>交接应说明访问条件或缺少的依赖，不应嵌入密钥，也不能在必要输入尚未交付时声称对方已可运行。</p></details><details><summary>支持哪些 Agent？</summary><p>包中包含 Codex 元数据和标准 SKILL.md 指令。Skills CLI 可将其安装到支持的 Agent；执行行为取决于宿主。核心指令使用中文，要求按用户的语言输出。</p></details>
       </section>
     </main>
     <footer class="wrap">
@@ -198,7 +202,7 @@ CSV 导出服务，包含 API 和后台 worker。
       <p>让工作继续。以 MIT 许可分享。</p>
       <div>
         <a href="https://github.com/xiaofengShi/handoff-skill">GitHub</a
-        ><a href="https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.2.0">v0.2.0</a
+        ><a href="https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.3.0">v0.3.0</a
         ><a href="https://github.com/xiaofengShi/handoff-skill/blob/main/LICENSE">MIT</a>
       </div>
     </footer>

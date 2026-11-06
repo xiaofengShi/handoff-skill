@@ -3,7 +3,7 @@
     "name": "session-handoff",
     "repo": "https://github.com/xiaofengShi/handoff-skill",
     "home": "https://xiaofengshi.github.io/handoff-skill/",
-    "version": "v0.2.0",
+    "version": "v0.3.0",
     "install": "npx skills add xiaofengShi/handoff-skill --skill session-handoff",
     "requirements": "Node.js ≥ 22.20 (Skills CLI) · Python ≥ 3.9 (manual install / site build)",
     "brand": "Handoff Skill"
@@ -14,14 +14,14 @@
       "other_lang": "简体中文",
       "other_path": "zh/",
       "title": "Keep the context. Continue the work.",
-      "description": "An open-source skill for session continuation and whole-project handovers. Preserve decisions, architecture, dependencies, verified state, and maintenance steps—in the user’s language.",
+      "description": "Session and project handoffs for coding agents, delivered as standalone HTML with Markdown audit sources. Keep decisions, evidence, diagrams, and next steps readable offline.",
       "headline": "Continue a task.\nHand over a project.",
       "intro": "Carry a task into a fresh conversation, or give a new maintainer the context to run and maintain an entire project. Both scopes support local continuation and GitHub sharing, in the language of your request.",
       "cta": "Install the skill",
       "github": "View on GitHub",
       "demo_link": "See the handoff",
       "release": "Download release",
-      "tagline": "Session and project handoffs for coding agents. MIT licensed.",
+      "tagline": "Session and project handoffs. Standalone HTML by default. MIT licensed.",
       "example_label": "Anatomy of a handoff",
       "example_note": "Illustrative example; repository and version are specified in a real handoff.",
       "mode_local": "New session",
@@ -57,6 +57,7 @@
       "example_cta": "Read a complete, runnable handoff example",
       "faq_heading": "A few things to know.",
       "faq_q": [
+        "Can I read the handoff offline?",
         "Does it follow my language?",
         "Does the recipient need this skill?",
         "Will it publish my work?",
@@ -64,6 +65,7 @@
         "Which agents can use it?"
       ],
       "faq_a": [
+        "Yes. The default HTML includes essential prose, inline styles, and embedded visuals without requiring JavaScript or a network connection. Fetching project code or private inputs can still require the access described in the document.",
         "Yes. Handoff prose follows your current request’s language, or your explicit output-language instruction. Commands, paths, identifiers, and source logs are preserved. This also applies when editing handoff text.",
         "No. A shared handoff should contain the instructions and accessible source references needed to continue.",
         "The handoff workflow requires explicit authorization before publishing, pushing, or changing access. Installing it does not grant that authorization.",
@@ -93,24 +95,29 @@
       "scope_project_share": "A whole-project guide with accessible sources, fixed versions, setup, verification, and maintenance.",
       "sample_project": "Project\nA CSV export service, including API and background worker.\n\nMap & dependencies\nEntry points, module roles, runtime, data, and services.\n\nCurrent capabilities\nWorking paths, verified versions, gaps, and unfinished work.\n\nOperate & maintain\nBuild, tests, CI, logs, deployment and recovery references.\n\nTake over\nAccess requirements, priority backlog, first maintenance action.",
       "prompt_project": "Use $session-handoff to hand over this entire project to a new maintainer via GitHub. Cover goals, architecture, dependencies, current capabilities and evidence, operations, backlog, and the first maintenance action. Use accessible sources at fixed revisions; identify missing inputs or permissions.",
-      "project_example_cta": "Read a complete project handover",
+      "project_example_cta": "Open the standalone project handoff",
       "language_note": "Handoff text follows the language of your current request, unless you explicitly request another language. Commands, identifiers, paths, and original logs stay accurate.",
       "identity_note": "The repository is named handoff-skill. The installed skill ID remains session-handoff, so existing $session-handoff requests continue to work.",
-      "scope_example_note": "Session is the default for “handoff this conversation.” Ask for a “project handoff” or “hand over the whole project” to include overall structure and maintenance."
+      "scope_example_note": "Session is the default for “handoff this conversation.” Ask for a “project handoff” or “hand over the whole project” to include overall structure and maintenance.",
+      "delivery_heading": "A handoff you can read on its own.",
+      "delivery_text": "Both Session and Project handoffs default to a standalone HTML file, with the same Markdown audit source. The essential context, evidence, commands, and explanations stay in the document—even offline and without JavaScript.",
+      "delivery_visuals": "Include embedded diagrams or screenshots when they help someone understand the structure, workflow, or current state. Each visual needs a caption and a text alternative. Source code and large inputs remain available through the documented GitHub access requirements.",
+      "delivery_override": "An explicit request for plain text, Markdown only, another format, or no saved files takes priority.",
+      "audit_source": "Markdown audit source"
     },
     "zh": {
       "lang": "zh-CN",
       "other_lang": "English",
       "other_path": "../",
       "title": "保留上下文，让工作继续。",
-      "description": "开源交接 Skill：覆盖 Session 任务续接与 Project 整体交接，保留结构、依赖、验证证据和维护步骤，自动跟随用户请求的语言。",
+      "description": "支持 Session 与 Project 的交接 Skill，默认交付离线 HTML 与同源 Markdown，让背景、证据、必要图示和接手步骤独立可读。",
       "headline": "继续当前任务，\n交接整个项目。",
       "intro": "把当前任务交给新会话，或让新维护者理解、运行并继续维护整个项目。两种范围都支持同机续接与 GitHub 分享，交接内容自动使用你的请求语言。",
       "cta": "安装 Skill",
       "github": "查看 GitHub",
       "demo_link": "看看交接内容",
       "release": "下载版本",
-      "tagline": "支持 Session 与 Project 的编码 Agent 交接 Skill，采用 MIT 许可。",
+      "tagline": "支持 Session 与 Project，默认交付独立 HTML，采用 MIT 许可。",
       "example_label": "一份交接包含什么",
       "example_note": "以下为结构示例；实际交接需要填写真实仓库和版本。",
       "mode_local": "换个会话",
@@ -146,6 +153,7 @@
       "example_cta": "阅读一份完整、可执行的分享交接示例",
       "faq_heading": "使用前了解这几件事。",
       "faq_q": [
+        "交接文档能离线阅读吗？",
         "输出会跟随我的语言吗？",
         "接收者也要安装这个 Skill 吗？",
         "它会自动发布我的工作吗？",
@@ -153,6 +161,7 @@
         "支持哪些 Agent？"
       ],
       "faq_a": [
+        "能。默认 HTML 内含核心正文、样式和必要图示，不依赖网络或脚本。获取项目代码、私有数据等运行资料，仍需满足文档中写明的访问条件。",
         "会。交接正文与修改后的说明默认使用当前请求的语言；明确指定输出语言时优先遵从。命令、路径、标识符和原始日志保持准确。",
         "不需要。分享文档本身应包含接手说明，以及接收者可访问的资料入口。",
         "交接流程要求发布、推送或修改权限前获得明确授权；安装 Skill 不会授予这些权限。",
@@ -182,10 +191,15 @@
       "scope_project_share": "完整项目接手说明、固定版本、环境、验证与维护步骤。",
       "sample_project": "项目\nCSV 导出服务，包含 API 和后台 worker。\n\n结构与依赖\n入口、模块职责、运行时、数据与外部服务。\n\n整体能力\n可用路径、验证版本、缺口与未完工作。\n\n运行与维护\n构建、测试、CI、日志、部署与恢复文档。\n\n接手顺序\n访问条件、优先待办与第一项维护动作。",
       "prompt_project": "请使用 $session-handoff，把整个项目交接给新维护者，通过 GitHub 分享。请覆盖目标、结构、依赖、整体能力与验证证据、运行维护、待办和第一项维护动作。使用对方可访问的固定版本，明确缺少的输入或权限。",
-      "project_example_cta": "阅读完整的 Project 级交接示例",
+      "project_example_cta": "打开独立 HTML 项目交接示例",
       "language_note": "交接正文默认跟随用户当前请求的语言；明确指定输出语言时，以指定为准。命令、标识符、路径和原始日志保持准确。",
       "identity_note": "仓库名称为 handoff-skill，已安装 Skill 的标识仍是 session-handoff，已有 $session-handoff 调用继续有效。",
-      "scope_example_note": "“交接一下／换个对话继续”默认按 Session 处理；“项目交接／交接整个项目”会覆盖整体结构与维护方式。"
+      "scope_example_note": "“交接一下／换个对话继续”默认按 Session 处理；“项目交接／交接整个项目”会覆盖整体结构与维护方式。",
+      "delivery_heading": "一份文件，就能独立阅读。",
+      "delivery_text": "Session 与 Project 默认都交付独立 HTML，并保留同源 Markdown。必要的背景、证据、命令和操作说明留在文档中，断网、禁用脚本也能阅读。",
+      "delivery_visuals": "当结构、流程或当前状态需要图文解释时，嵌入相应图示或截图，配上图注与文字说明。代码和大文件仍按文档中的 GitHub 入口及权限要求获取。",
+      "delivery_override": "用户明确要求纯文本、仅 Markdown、其他格式或不落盘时，按指定方式交付。",
+      "audit_source": "Markdown 审计源"
     }
   }
 }

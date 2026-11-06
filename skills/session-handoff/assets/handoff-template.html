@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="$language">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>$title</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        color: #18233d;
+        background: #edf1f7;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 40px 24px;
+        line-height: 1.75;
+      }
+      main {
+        max-width: 1200px;
+        margin: auto;
+        padding: 48px;
+        background: #fff;
+        border: 1px solid #d8dfeb;
+        border-radius: 12px;
+      }
+      h1,
+      h2,
+      h3 {
+        line-height: 1.25;
+        letter-spacing: -0.025em;
+      }
+      h1 {
+        font-size: clamp(29px, 4vw, 44px);
+        margin: 0 0 26px;
+      }
+      h2 {
+        font-size: 26px;
+        margin: 42px 0 18px;
+        padding-top: 12px;
+        border-top: 1px solid #d8dfeb;
+      }
+      h3 {
+        font-size: 21px;
+        margin-top: 28px;
+      }
+      p,
+      li {
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+      p {
+        margin: 16px 0;
+      }
+      a {
+        color: #234db9;
+        text-underline-offset: 3px;
+        overflow-wrap: anywhere;
+      }
+      a:focus-visible {
+        outline: 3px solid #234db9;
+        outline-offset: 4px;
+      }
+      code {
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.9em;
+        overflow-wrap: anywhere;
+      }
+      pre {
+        background: #f2f5fa;
+        border: 1px solid #d8dfeb;
+        border-radius: 7px;
+        padding: 20px;
+        overflow: auto;
+        line-height: 1.6;
+      }
+      pre code {
+        white-space: pre;
+        overflow-wrap: normal;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+      th,
+      td {
+        padding: 12px;
+        border: 1px solid #d8dfeb;
+        vertical-align: top;
+        overflow-wrap: anywhere;
+      }
+      th {
+        background: #f2f5fa;
+      }
+      .table-scroll {
+        overflow-x: auto;
+      }
+      figure {
+        margin: 28px 0;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      figcaption {
+        font-size: 14px;
+        color: #4d5b74;
+        margin-top: 12px;
+      }
+      blockquote {
+        margin: 24px 0;
+        border-left: 4px solid #234db9;
+        padding: 4px 20px;
+        background: #f2f5fa;
+      }
+      footer {
+        margin-top: 42px;
+        padding-top: 20px;
+        border-top: 1px solid #d8dfeb;
+        color: #4d5b74;
+        font-size: 14px;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 12px;
+        }
+        main {
+          padding: 24px 18px;
+          border-radius: 8px;
+        }
+        h2 {
+          font-size: 23px;
+        }
+        th,
+        td {
+          padding: 9px;
+          font-size: 14px;
+        }
+        pre {
+          padding: 14px;
+        }
+      }
+      @media print {
+        body {
+          padding: 0;
+          background: white;
+          color: black;
+        }
+        main {
+          max-width: none;
+          border: 0;
+          padding: 0;
+        }
+        h2,
+        h3 {
+          break-after: avoid;
+        }
+        figure,
+        pre {
+          break-inside: avoid;
+        }
+        pre {
+          white-space: pre-wrap;
+          overflow: visible;
+        }
+        pre code {
+          white-space: pre-wrap;
+          overflow-wrap: anywhere;
+        }
+        thead {
+          display: table-header-group;
+        }
+        a {
+          color: inherit;
+        }
+        footer {
+          font-size: 11px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main><article>$body</article></main>
+  </body>
+</html>

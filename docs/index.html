@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Handoff Skill — Keep the context. Continue the work.</title>
-    <meta name="description" content="An open-source skill for session continuation and whole-project handovers. Preserve decisions, architecture, dependencies, verified state, and maintenance steps—in the user’s language." />
+    <meta name="description" content="Session and project handoffs for coding agents, delivered as standalone HTML with Markdown audit sources. Keep decisions, evidence, diagrams, and next steps readable offline." />
     <link rel="canonical" href="https://xiaofengshi.github.io/handoff-skill/" />
     <link rel="alternate" hreflang="en" href="https://xiaofengshi.github.io/handoff-skill/" />
     <link rel="alternate" hreflang="zh-CN" href="https://xiaofengshi.github.io/handoff-skill/zh/" />
     <link rel="alternate" hreflang="x-default" href="https://xiaofengshi.github.io/handoff-skill/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Handoff Skill — Keep the context. Continue the work." />
-    <meta property="og:description" content="An open-source skill for session continuation and whole-project handovers. Preserve decisions, architecture, dependencies, verified state, and maintenance steps—in the user’s language." />
+    <meta property="og:description" content="Session and project handoffs for coding agents, delivered as standalone HTML with Markdown audit sources. Keep decisions, evidence, diagrams, and next steps readable offline." />
     <meta property="og:url" content="https://xiaofengshi.github.io/handoff-skill/" />
     <meta property="og:image" content="https://xiaofengshi.github.io/handoff-skill/assets/social.png" />
     <meta property="og:image:width" content="1200" />
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="assets/style.css" />
     <script src="assets/app.js" defer></script>
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "session-handoff", "description": "An open-source skill for session continuation and whole-project handovers. Preserve decisions, architecture, dependencies, verified state, and maintenance steps—in the user’s language.", "codeRepository": "https://github.com/xiaofengShi/handoff-skill", "url": "https://xiaofengshi.github.io/handoff-skill/", "license": "https://github.com/xiaofengShi/handoff-skill/blob/main/LICENSE", "version": "v0.2.0", "inLanguage": "en"}
+      {"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "session-handoff", "description": "Session and project handoffs for coding agents, delivered as standalone HTML with Markdown audit sources. Keep decisions, evidence, diagrams, and next steps readable offline.", "codeRepository": "https://github.com/xiaofengShi/handoff-skill", "url": "https://xiaofengshi.github.io/handoff-skill/", "license": "https://github.com/xiaofengShi/handoff-skill/blob/main/LICENSE", "version": "v0.3.0", "inLanguage": "en"}
     </script>
   </head>
   <body data-copied="Copied" data-copy-failed="Select and copy the text manually.">
@@ -50,7 +50,7 @@
     <main id="main">
       <section class="wrap hero">
         <div class="hero-copy">
-          <p class="small-note">Session and project handoffs for coding agents. MIT licensed.</p>
+          <p class="small-note">Session and project handoffs. Standalone HTML by default. MIT licensed.</p>
           <h1>Continue a task.<br>Hand over a project.</h1>
           <p class="intro">Carry a task into a fresh conversation, or give a new maintainer the context to run and maintain an entire project. Both scopes support local continuation and GitHub sharing, in the language of your request.</p>
           <div class="actions">
@@ -59,7 +59,7 @@
               >See the handoff <span aria-hidden="true">↗</span></a
             >
           </div>
-          <a class="release-link" href="https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.2.0"
+          <a class="release-link" href="https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.3.0"
             >Download release <span aria-hidden="true">↗</span></a
           >
         </div>
@@ -171,6 +171,12 @@ Access requirements, priority backlog, first maintenance action.</pre>
           <p class="install-note">
             Requires Node.js 22.20+. Prefer no Node dependency? Clone the repository and use the Python installer. <a href="https://github.com/xiaofengShi/handoff-skill#manual-codex-installation">README</a>
           </p>
+          <section class="delivery">
+            <h3>A handoff you can read on its own.</h3>
+            <p>Both Session and Project handoffs default to a standalone HTML file, with the same Markdown audit source. The essential context, evidence, commands, and explanations stay in the document—even offline and without JavaScript.</p>
+            <p>Include embedded diagrams or screenshots when they help someone understand the structure, workflow, or current state. Each visual needs a caption and a text alternative. Source code and large inputs remain available through the documented GitHub access requirements.</p>
+            <p>An explicit request for plain text, Markdown only, another format, or no saved files takes priority.</p>
+          </section>
           <h3 class="prompt-heading">Ask for a task handoff or a project handover.</h3>
           <div class="prompts"><article class="prompt-box"><div class="prompt-top"><span>New session</span><button type="button" data-copy="prompt-local">Copy</button></div><pre id="prompt-local">Use $session-handoff to prepare a self-contained continuation prompt for a fresh conversation. Preserve decisions, verified state, authorization scope, and the next action.</pre></article><article class="prompt-box"><div class="prompt-top"><span>New teammate</span><button type="button" data-copy="prompt-share">Copy</button></div><pre id="prompt-share">Use $session-handoff to prepare a handoff for a teammate who cannot access my machine or chat history. Use accessible GitHub files at a fixed commit; include setup, run, and verification commands. Identify any missing dependency.</pre></article><article class="prompt-box"><div class="prompt-top"><span>Project</span><button type="button" data-copy="prompt-project">Copy</button></div><pre id="prompt-project">Use $session-handoff to hand over this entire project to a new maintainer via GitHub. Cover goals, architecture, dependencies, current capabilities and evidence, operations, backlog, and the first maintenance action. Use accessible sources at fixed revisions; identify missing inputs or permissions.</pre></article></div>
           <a
@@ -179,10 +185,8 @@ Access requirements, priority backlog, first maintenance action.</pre>
             >Read a complete, runnable handoff example <span aria-hidden="true">↗</span></a
           >
           <p>
-            <a
-              class="example-link"
-              href="https://github.com/xiaofengShi/handoff-skill/blob/main/examples/project-handoff.md"
-              >Read a complete project handover <span aria-hidden="true">↗</span></a
+            <a class="example-link" href="https://xiaofengshi.github.io/handoff-skill/examples/project-handoff.html"
+              >Open the standalone project handoff <span aria-hidden="true">↗</span></a
             >
           </p>
         </div>
@@ -190,7 +194,7 @@ Access requirements, priority backlog, first maintenance action.</pre>
 
       <section class="wrap faq">
         <h2>A few things to know.</h2>
-        <details><summary>Does it follow my language?</summary><p>Yes. Handoff prose follows your current request’s language, or your explicit output-language instruction. Commands, paths, identifiers, and source logs are preserved. This also applies when editing handoff text.</p></details><details><summary>Does the recipient need this skill?</summary><p>No. A shared handoff should contain the instructions and accessible source references needed to continue.</p></details><details><summary>Will it publish my work?</summary><p>The handoff workflow requires explicit authorization before publishing, pushing, or changing access. Installing it does not grant that authorization.</p></details><details><summary>What if the project needs private data?</summary><p>The handoff should identify the access requirement or missing dependency. It should never embed credentials or claim a project is runnable while required inputs are unavailable.</p></details><details><summary>Which agents can use it?</summary><p>The package includes Codex metadata and standard SKILL.md instructions. The Skills CLI can install it to supported agents; behavior varies by host. The core instructions are in Chinese and request output in the user’s language.</p></details>
+        <details><summary>Can I read the handoff offline?</summary><p>Yes. The default HTML includes essential prose, inline styles, and embedded visuals without requiring JavaScript or a network connection. Fetching project code or private inputs can still require the access described in the document.</p></details><details><summary>Does it follow my language?</summary><p>Yes. Handoff prose follows your current request’s language, or your explicit output-language instruction. Commands, paths, identifiers, and source logs are preserved. This also applies when editing handoff text.</p></details><details><summary>Does the recipient need this skill?</summary><p>No. A shared handoff should contain the instructions and accessible source references needed to continue.</p></details><details><summary>Will it publish my work?</summary><p>The handoff workflow requires explicit authorization before publishing, pushing, or changing access. Installing it does not grant that authorization.</p></details><details><summary>What if the project needs private data?</summary><p>The handoff should identify the access requirement or missing dependency. It should never embed credentials or claim a project is runnable while required inputs are unavailable.</p></details><details><summary>Which agents can use it?</summary><p>The package includes Codex metadata and standard SKILL.md instructions. The Skills CLI can install it to supported agents; behavior varies by host. The core instructions are in Chinese and request output in the user’s language.</p></details>
       </section>
     </main>
     <footer class="wrap">
@@ -198,7 +202,7 @@ Access requirements, priority backlog, first maintenance action.</pre>
       <p>Built for continuity. Shared under MIT.</p>
       <div>
         <a href="https://github.com/xiaofengShi/handoff-skill">GitHub</a
-        ><a href="https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.2.0">v0.2.0</a
+        ><a href="https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.3.0">v0.3.0</a
         ><a href="https://github.com/xiaofengShi/handoff-skill/blob/main/LICENSE">MIT</a>
       </div>
     </footer>

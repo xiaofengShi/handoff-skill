@@ -37,6 +37,27 @@ Read the snapshot in this order:
 
 Two primary user paths are: installing the Skill and requesting a handoff; and maintaining source copy/templates followed by regeneration and review. Recipients of a generated handoff do not need this Skill installed.
 
+<figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 420" width="480" height="420" role="img" aria-labelledby="build-flow-title build-flow-desc">
+<title id="build-flow-title">Documentation build flow</title>
+<desc id="build-flow-desc">Shared product copy and site templates feed scripts/build.py, which generates the website and both READMEs.</desc>
+<defs><marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#234db9"/></marker></defs>
+<rect x="20" y="20" width="440" height="90" rx="10" fill="#edf1f7" stroke="#b9c8df"/>
+<text x="240" y="54" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#18233d">site/content.json</text>
+<text x="240" y="85" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#4d5b74">+ site templates and assets</text>
+<path d="M240 112 V155" stroke="#234db9" stroke-width="3" marker-end="url(#flow-arrow)"/>
+<rect x="20" y="170" width="440" height="70" rx="10" fill="#234db9"/>
+<text x="240" y="213" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" fill="white">scripts/build.py</text>
+<path d="M240 242 V285" stroke="#234db9" stroke-width="3" marker-end="url(#flow-arrow)"/>
+<rect x="20" y="300" width="440" height="90" rx="10" fill="#edf1f7" stroke="#b9c8df"/>
+<text x="240" y="337" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#18233d">docs/ + README.md</text>
+<text x="240" y="369" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#18233d">+ README.zh-CN.md</text>
+</svg>
+<figcaption>Structure diagram of the documented snapshot: shared source → build script → website and README views. Source: the build script and directory map above; this diagram is not evidence of a successful deployment.</figcaption>
+</figure>
+
+The diagram summarizes the same flow as the structure table: edit the shared copy or templates, run the build script, and review the generated website and both README files. The text and table remain sufficient if a reader uses assistive technology or reads the Markdown source.
+
 ## From an empty directory
 
 Requirements: Git and Python 3.9+. The commands below use macOS/Linux shell syntax. No Python package, external font, private input or credential is required to build, test or preview this project. Skills CLI installation is optional and requires Node.js 22.20+.

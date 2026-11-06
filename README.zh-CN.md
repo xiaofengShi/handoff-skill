@@ -1,6 +1,6 @@
 # Handoff Skill
 
-[English](README.md) · [Website](https://xiaofengshi.github.io/handoff-skill/) · [Release](https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.2.0)
+[English](README.md) · [Website](https://xiaofengshi.github.io/handoff-skill/) · [Release](https://github.com/xiaofengShi/handoff-skill/releases/tag/v0.3.0)
 
 **保留上下文，让工作继续。**
 
@@ -33,6 +33,16 @@ npx skills add xiaofengShi/handoff-skill --skill session-handoff
 
 交接正文默认跟随用户当前请求的语言；明确指定输出语言时，以指定为准。命令、标识符、路径和原始日志保持准确。
 
+## 一份文件，就能独立阅读。
+
+Session 与 Project 默认都交付独立 HTML，并保留同源 Markdown。必要的背景、证据、命令和操作说明留在文档中，断网、禁用脚本也能阅读。
+
+当结构、流程或当前状态需要图文解释时，嵌入相应图示或截图，配上图注与文字说明。代码和大文件仍按文档中的 GitHub 入口及权限要求获取。
+
+用户明确要求纯文本、仅 Markdown、其他格式或不落盘时，按指定方式交付。
+
+[打开独立 HTML 项目交接示例](https://xiaofengshi.github.io/handoff-skill/examples/project-handoff.html) · [Markdown 审计源](examples/project-handoff.md)
+
 ## 使用方法
 
 ### 换个会话
@@ -53,7 +63,7 @@ npx skills add xiaofengShi/handoff-skill --skill session-handoff
 请使用 $session-handoff，把整个项目交接给新维护者，通过 GitHub 分享。请覆盖目标、结构、依赖、整体能力与验证证据、运行维护、待办和第一项维护动作。使用对方可访问的固定版本，明确缺少的输入或权限。
 ```
 
-[阅读完整的 Project 级交接示例](examples/project-handoff.md)
+[打开独立 HTML 项目交接示例](https://xiaofengshi.github.io/handoff-skill/examples/project-handoff.html)
 
 [阅读一份完整、可执行的分享交接示例](examples/shared-handoff.md)
 
@@ -99,6 +109,8 @@ python3 scripts/build.py
 python3 -m unittest discover -s tests
 git diff --check
 ```
+
+To regenerate the standalone HTML example, use Python 3.10+ with `python3 -m pip install -r requirements-examples.txt`, then run `python3 scripts/render_example.py` before the site build. Skill use, installation, and the site builder do not require this optional example-rendering dependency.
 
 For local preview, run `python3 -m http.server 8000 --directory docs` and open `http://localhost:8000/`. To edit product copy, edit `site/content.json`; to change presentation, edit `site/index.html` or `site/assets/`, then rebuild. `examples/shared-handoff.md` documents an actual fixed-version checkout and website build.
 

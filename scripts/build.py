@@ -31,6 +31,10 @@ def build():
         page = output / ("zh/index.html" if locale == "zh" else "index.html")
         page.parent.mkdir(parents=True, exist_ok=True)
         page.write_text(site_template.substitute(escaped))
+    examples = output / "examples"
+    examples.mkdir(exist_ok=True)
+    for suffix in (".md", ".html"):
+        shutil.copy2(ROOT / ("examples/project-handoff" + suffix), examples / ("project-handoff" + suffix))
     (output / ".nojekyll").touch()
     (output / "robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: " + common["home"] + "sitemap.xml\n")
     (output / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>' + common["home"] + '</loc></url><url><loc>' + common["home"] + 'zh/</loc></url></urlset>\n')
