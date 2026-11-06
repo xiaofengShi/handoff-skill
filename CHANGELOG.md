@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Route generation, scoped edits, read-only review, and resumption before loading format-specific instructions; move sharing details into an on-demand reference. Preserve user-selected sharing channels and distinguish historical authorization from current permission.
+- Add a resume example and complete Chinese installation and maintenance instructions through the shared content source.
+- Reject incomplete bilingual copy before generating files, escape JSON-LD script delimiters correctly, use explicit UTF-8, and fix the README preview URL.
+- Check pull requests before deployment, cover the advertised Python 3.9 baseline and Python 3.12 rendering workflow, and restrict Pages publishing to main after both checks pass.
+- Add regression coverage for deterministic builds, links, translation completeness, JSON-LD, package references/licenses, and installer destination protection.
+
 ## v0.3.0
 
 - Default both Session and Project deliveries to standalone offline HTML plus the same Markdown audit source; explicit format requests still take priority.

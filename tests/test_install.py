@@ -35,6 +35,29 @@ class InstallTest(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertTrue(destination.is_symlink())
 
+    def test_explicit_destination_takes_precedence_over_codex_home(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            base = Path(temporary)
+            destination = base / "with spaces" / "session-handoff"
+            environment = dict(os.environ, CODEX_HOME=str(base / "unused"))
+            subprocess.run([sys.executable, str(ROOT / "scripts/install.py"), "--dest", str(destination)], env=environment, cwd=base, check=True, capture_output=True)
+            self.assertTrue((destination / "SKILL.md").is_file())
+            self.assertFalse((base / "unused").exists())
+
+    def test_existing_file_and_live_symlink_remain_untouched(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            base = Path(temporary)
+            existing = base / "existing"
+            existing.write_text("keep", encoding="utf-8")
+            link = base / "link"
+            link.symlink_to(existing)
+            for destination in (existing, link):
+                with self.subTest(destination=destination):
+                    result = subprocess.run([sys.executable, str(ROOT / "scripts/install.py"), "--dest", str(destination)], capture_output=True)
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertEqual(existing.read_text(encoding="utf-8"), "keep")
+                    self.assertTrue(link.is_symlink())
+
 
 if __name__ == "__main__":
     unittest.main()

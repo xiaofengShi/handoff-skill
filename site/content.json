@@ -79,7 +79,7 @@
       "manual_heading": "Manual Codex installation",
       "manual_text": "From a clone of this repository, run the standard-library installer. It respects CODEX_HOME and refuses to overwrite an existing installation.",
       "verify_heading": "Build and check",
-      "verify_text": "The website and these READMEs are generated from site/content.json. No frontend dependency or external font is required.",
+      "verify_text": "The website and these READMEs are generated from site/content.json. No frontend dependency or external font is required. Pull requests run Python 3.9 compatibility tests, Python 3.12 checks, and generated-file consistency checks; only main can deploy Pages.",
       "contribute": "Contributions and license",
       "contribute_text": "See CONTRIBUTING.md for behavioral scenarios and contribution requirements. The skill and installer are MIT licensed. This is a workflow for an agent to follow; it does not run arbitrary projects by itself.",
       "scope_heading": "Choose the scope. Then the recipient.",
@@ -103,7 +103,13 @@
       "delivery_text": "Both Session and Project handoffs default to a standalone HTML file, with the same Markdown audit source. The essential context, evidence, commands, and explanations stay in the document—even offline and without JavaScript.",
       "delivery_visuals": "Include embedded diagrams or screenshots when they help someone understand the structure, workflow, or current state. Each visual needs a caption and a text alternative. Source code and large inputs remain available through the documented GitHub access requirements.",
       "delivery_override": "An explicit request for plain text, Markdown only, another format, or no saved files takes priority.",
-      "audit_source": "Markdown audit source"
+      "audit_source": "Markdown audit source",
+      "resume_heading": "Resume from a handoff",
+      "prompt_resume": "Use $session-handoff to resume from handoff.md. Check the current project rules, revision, working tree, and relevant evidence, then continue the first authorized action. Report any difference from the handoff.",
+      "manual_details": "Python ≥ 3.9. `python3 scripts/install.py --dest /path/to/skills/session-handoff` installs to a chosen skill directory. Existing directories, files, and symlinks are never overwritten. Back up your old installation before updating. Remove only the installed skill directory to uninstall.",
+      "compatibility_note": "The package follows the SKILL.md format and includes Codex metadata. Other agents’ installation support depends on the host and the [Skills CLI](https://github.com/vercel-labs/skills). Core instructions are in Chinese; output follows the user's language. Recipients do not need this skill installed, but still need the project's environment, permissions, inputs, and credentials.",
+      "example_build_note": "To regenerate the standalone HTML example, use Python 3.10+ with `python3 -m pip install -r requirements-examples.txt`, then run `python3 scripts/render_example.py` before the site build. Skill use, installation, site building, and the standard-library tests do not require this optional rendering dependency.",
+      "preview_note": "For local preview, run `python3 -m http.server 8000 --bind 127.0.0.1 --directory docs` and open `http://127.0.0.1:8000/`. Edit product copy in `site/content.json`, presentation in `site/index.html` or `site/assets/`, then rebuild. `examples/shared-handoff.md` demonstrates a fixed-version checkout and build."
     },
     "zh": {
       "lang": "zh-CN",
@@ -175,7 +181,7 @@
       "manual_heading": "手动安装到 Codex",
       "manual_text": "克隆本仓库后，运行仅依赖 Python 标准库的安装器。它遵循 CODEX_HOME，并拒绝覆盖已有安装。",
       "verify_heading": "构建与检查",
-      "verify_text": "主页和两份 README 由 site/content.json 生成，无需前端依赖或外部字体。",
+      "verify_text": "主页和两份 README 由 site/content.json 生成，无需前端依赖或外部字体。Pull Request 会运行 Python 3.9 兼容性测试、Python 3.12 检查和生成文件一致性检查；仅 main 分支可部署 Pages。",
       "contribute": "贡献与许可",
       "contribute_text": "行为检查场景与贡献要求见 CONTRIBUTING.md。Skill 和安装器采用 MIT 许可。它提供供 Agent 遵循的工作流，不会自行运行任意项目。",
       "scope_heading": "先确定交接范围，再确定接收对象。",
@@ -199,7 +205,13 @@
       "delivery_text": "Session 与 Project 默认都交付独立 HTML，并保留同源 Markdown。必要的背景、证据、命令和操作说明留在文档中，断网、禁用脚本也能阅读。",
       "delivery_visuals": "当结构、流程或当前状态需要图文解释时，嵌入相应图示或截图，配上图注与文字说明。代码和大文件仍按文档中的 GitHub 入口及权限要求获取。",
       "delivery_override": "用户明确要求纯文本、仅 Markdown、其他格式或不落盘时，按指定方式交付。",
-      "audit_source": "Markdown 审计源"
+      "audit_source": "Markdown 审计源",
+      "resume_heading": "接手已有交接",
+      "prompt_resume": "请使用 $session-handoff，根据 handoff.md 继续工作。先核验当前项目规则、版本、工作区与相关证据，说明与交接记录的差异，再执行第一项已授权工作。",
+      "manual_details": "需要 Python ≥ 3.9。使用 `python3 scripts/install.py --dest /path/to/skills/session-handoff` 指定安装目录。已有目录、文件和符号链接均不会被覆盖；更新前请先备份旧安装。卸载时仅移除所安装的 Skill 目录。",
+      "compatibility_note": "安装包遵循 SKILL.md 格式，并包含 Codex 元数据。其他 Agent 的安装支持取决于宿主与 [Skills CLI](https://github.com/vercel-labs/skills)。核心指令使用中文，输出跟随用户请求的语言。接收者不需要安装此 Skill，但仍需具备项目运行环境、权限、输入和自己的凭据。",
+      "example_build_note": "重新生成独立 HTML 示例需要 Python 3.10+。先运行 `python3 -m pip install -r requirements-examples.txt`，再运行 `python3 scripts/render_example.py`，最后构建网站。Skill 使用、安装、网站构建和标准库测试不依赖这个可选渲染组件。",
+      "preview_note": "本地预览运行 `python3 -m http.server 8000 --bind 127.0.0.1 --directory docs`，打开 `http://127.0.0.1:8000/`。产品文案修改 `site/content.json`，展示模板与资源修改 `site/index.html` 或 `site/assets/`，然后重新构建。`examples/shared-handoff.md` 提供固定版本检出与构建示例。"
     }
   }
 }

@@ -8,7 +8,7 @@ Carry a task into a fresh conversation, or give a new maintainer the context to 
 
 The repository is named handoff-skill. The installed skill ID remains session-handoff, so existing $session-handoff requests continue to work.
 
-![Handoff Skill preview](https://xiaofengshi.github.io/handoff-skill//assets/social.png)
+![Handoff Skill preview](https://xiaofengshi.github.io/handoff-skill/assets/social.png)
 
 ## Quick start
 
@@ -63,6 +63,12 @@ Use $session-handoff to prepare a handoff for a teammate who cannot access my ma
 Use $session-handoff to hand over this entire project to a new maintainer via GitHub. Cover goals, architecture, dependencies, current capabilities and evidence, operations, backlog, and the first maintenance action. Use accessible sources at fixed revisions; identify missing inputs or permissions.
 ```
 
+### Resume from a handoff
+
+```text
+Use $session-handoff to resume from handoff.md. Check the current project rules, revision, working tree, and relevant evidence, then continue the first authorized action. Report any difference from the handoff.
+```
+
 [Open the standalone project handoff](https://xiaofengshi.github.io/handoff-skill/examples/project-handoff.html)
 
 [Read a complete, runnable handoff example](examples/shared-handoff.md)
@@ -96,13 +102,13 @@ cd handoff-skill
 python3 scripts/install.py
 ```
 
-Python ≥ 3.9. `python3 scripts/install.py --dest /path/to/skills/session-handoff` installs to a chosen skill directory. Existing directories and symlinks are never overwritten. Back up your old installation before updating. Remove only the installed skill directory to uninstall.
+Python ≥ 3.9. `python3 scripts/install.py --dest /path/to/skills/session-handoff` installs to a chosen skill directory. Existing directories, files, and symlinks are never overwritten. Back up your old installation before updating. Remove only the installed skill directory to uninstall.
 
-The package follows the SKILL.md format and includes Codex metadata. Other agents’ installation support depends on the host and the [Skills CLI](https://github.com/vercel-labs/skills). Core instructions are currently in Chinese; output follows the user's language. Recipients of a handoff do not need this skill installed. A handoff still requires the project's actual environment, permissions, inputs, and credentials.
+The package follows the SKILL.md format and includes Codex metadata. Other agents’ installation support depends on the host and the [Skills CLI](https://github.com/vercel-labs/skills). Core instructions are in Chinese; output follows the user's language. Recipients do not need this skill installed, but still need the project's environment, permissions, inputs, and credentials.
 
 ## Build and check
 
-The website and these READMEs are generated from site/content.json. No frontend dependency or external font is required.
+The website and these READMEs are generated from site/content.json. No frontend dependency or external font is required. Pull requests run Python 3.9 compatibility tests, Python 3.12 checks, and generated-file consistency checks; only main can deploy Pages.
 
 ```sh
 python3 scripts/build.py
@@ -110,9 +116,9 @@ python3 -m unittest discover -s tests
 git diff --check
 ```
 
-To regenerate the standalone HTML example, use Python 3.10+ with `python3 -m pip install -r requirements-examples.txt`, then run `python3 scripts/render_example.py` before the site build. Skill use, installation, and the site builder do not require this optional example-rendering dependency.
+To regenerate the standalone HTML example, use Python 3.10+ with `python3 -m pip install -r requirements-examples.txt`, then run `python3 scripts/render_example.py` before the site build. Skill use, installation, site building, and the standard-library tests do not require this optional rendering dependency.
 
-For local preview, run `python3 -m http.server 8000 --directory docs` and open `http://localhost:8000/`. To edit product copy, edit `site/content.json`; to change presentation, edit `site/index.html` or `site/assets/`, then rebuild. `examples/shared-handoff.md` documents an actual fixed-version checkout and website build.
+For local preview, run `python3 -m http.server 8000 --bind 127.0.0.1 --directory docs` and open `http://127.0.0.1:8000/`. Edit product copy in `site/content.json`, presentation in `site/index.html` or `site/assets/`, then rebuild. `examples/shared-handoff.md` demonstrates a fixed-version checkout and build.
 
 ## Contributions and license
 

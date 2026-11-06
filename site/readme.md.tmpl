@@ -8,7 +8,7 @@ $intro
 
 $identity_note
 
-![Handoff Skill preview]($home/assets/social.png)
+![Handoff Skill preview](${home}assets/social.png)
 
 ## $quickstart
 
@@ -63,6 +63,12 @@ $prompt_share
 $prompt_project
 ```
 
+### $resume_heading
+
+```text
+$prompt_resume
+```
+
 [$project_example_cta](${home}examples/project-handoff.html)
 
 [$example_cta](examples/shared-handoff.md)
@@ -83,9 +89,9 @@ cd handoff-skill
 python3 scripts/install.py
 ```
 
-Python ≥ 3.9. `python3 scripts/install.py --dest /path/to/skills/session-handoff` installs to a chosen skill directory. Existing directories and symlinks are never overwritten. Back up your old installation before updating. Remove only the installed skill directory to uninstall.
+$manual_details
 
-The package follows the SKILL.md format and includes Codex metadata. Other agents’ installation support depends on the host and the [Skills CLI](https://github.com/vercel-labs/skills). Core instructions are currently in Chinese; output follows the user's language. Recipients of a handoff do not need this skill installed. A handoff still requires the project's actual environment, permissions, inputs, and credentials.
+$compatibility_note
 
 ## $verify_heading
 
@@ -97,9 +103,9 @@ python3 -m unittest discover -s tests
 git diff --check
 ```
 
-To regenerate the standalone HTML example, use Python 3.10+ with `python3 -m pip install -r requirements-examples.txt`, then run `python3 scripts/render_example.py` before the site build. Skill use, installation, and the site builder do not require this optional example-rendering dependency.
+$example_build_note
 
-For local preview, run `python3 -m http.server 8000 --directory docs` and open `http://localhost:8000/`. To edit product copy, edit `site/content.json`; to change presentation, edit `site/index.html` or `site/assets/`, then rebuild. `examples/shared-handoff.md` documents an actual fixed-version checkout and website build.
+$preview_note
 
 ## $contribute
 

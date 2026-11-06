@@ -8,7 +8,7 @@
 
 仓库名称为 handoff-skill，已安装 Skill 的标识仍是 session-handoff，已有 $session-handoff 调用继续有效。
 
-![Handoff Skill preview](https://xiaofengshi.github.io/handoff-skill//assets/social.png)
+![Handoff Skill preview](https://xiaofengshi.github.io/handoff-skill/assets/social.png)
 
 ## 快速开始
 
@@ -63,6 +63,12 @@ Session 与 Project 默认都交付独立 HTML，并保留同源 Markdown。必�
 请使用 $session-handoff，把整个项目交接给新维护者，通过 GitHub 分享。请覆盖目标、结构、依赖、整体能力与验证证据、运行维护、待办和第一项维护动作。使用对方可访问的固定版本，明确缺少的输入或权限。
 ```
 
+### 接手已有交接
+
+```text
+请使用 $session-handoff，根据 handoff.md 继续工作。先核验当前项目规则、版本、工作区与相关证据，说明与交接记录的差异，再执行第一项已授权工作。
+```
+
 [打开独立 HTML 项目交接示例](https://xiaofengshi.github.io/handoff-skill/examples/project-handoff.html)
 
 [阅读一份完整、可执行的分享交接示例](examples/shared-handoff.md)
@@ -96,13 +102,13 @@ cd handoff-skill
 python3 scripts/install.py
 ```
 
-Python ≥ 3.9. `python3 scripts/install.py --dest /path/to/skills/session-handoff` installs to a chosen skill directory. Existing directories and symlinks are never overwritten. Back up your old installation before updating. Remove only the installed skill directory to uninstall.
+需要 Python ≥ 3.9。使用 `python3 scripts/install.py --dest /path/to/skills/session-handoff` 指定安装目录。已有目录、文件和符号链接均不会被覆盖；更新前请先备份旧安装。卸载时仅移除所安装的 Skill 目录。
 
-The package follows the SKILL.md format and includes Codex metadata. Other agents’ installation support depends on the host and the [Skills CLI](https://github.com/vercel-labs/skills). Core instructions are currently in Chinese; output follows the user's language. Recipients of a handoff do not need this skill installed. A handoff still requires the project's actual environment, permissions, inputs, and credentials.
+安装包遵循 SKILL.md 格式，并包含 Codex 元数据。其他 Agent 的安装支持取决于宿主与 [Skills CLI](https://github.com/vercel-labs/skills)。核心指令使用中文，输出跟随用户请求的语言。接收者不需要安装此 Skill，但仍需具备项目运行环境、权限、输入和自己的凭据。
 
 ## 构建与检查
 
-主页和两份 README 由 site/content.json 生成，无需前端依赖或外部字体。
+主页和两份 README 由 site/content.json 生成，无需前端依赖或外部字体。Pull Request 会运行 Python 3.9 兼容性测试、Python 3.12 检查和生成文件一致性检查；仅 main 分支可部署 Pages。
 
 ```sh
 python3 scripts/build.py
@@ -110,9 +116,9 @@ python3 -m unittest discover -s tests
 git diff --check
 ```
 
-To regenerate the standalone HTML example, use Python 3.10+ with `python3 -m pip install -r requirements-examples.txt`, then run `python3 scripts/render_example.py` before the site build. Skill use, installation, and the site builder do not require this optional example-rendering dependency.
+重新生成独立 HTML 示例需要 Python 3.10+。先运行 `python3 -m pip install -r requirements-examples.txt`，再运行 `python3 scripts/render_example.py`，最后构建网站。Skill 使用、安装、网站构建和标准库测试不依赖这个可选渲染组件。
 
-For local preview, run `python3 -m http.server 8000 --directory docs` and open `http://localhost:8000/`. To edit product copy, edit `site/content.json`; to change presentation, edit `site/index.html` or `site/assets/`, then rebuild. `examples/shared-handoff.md` documents an actual fixed-version checkout and website build.
+本地预览运行 `python3 -m http.server 8000 --bind 127.0.0.1 --directory docs`，打开 `http://127.0.0.1:8000/`。产品文案修改 `site/content.json`，展示模板与资源修改 `site/index.html` 或 `site/assets/`，然后重新构建。`examples/shared-handoff.md` 提供固定版本检出与构建示例。
 
 ## 贡献与许可
 
